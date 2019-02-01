@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{item.title}}</title>
+</head>
+<body>
+    <h2>제목</h2>
+    <p>{{item.title}}</p>
+
+    <h3>원제</h3>
+    {{item.ogr_title}}
+
+    <h3>영문 제목</h3>
+    {{item.eng_title}}
+
+    <h2>포스터</h2>
+    <img src="{{item.poster}}">
+
+    <h2>감독</h2>
+    {% for i in item.director %}
+    <p>{{i}}</p>
+    {% endfor %}
+
+    <h2>배우</h2>
+    {% for i in item.actors %}
+    <p>{{i}}</p>
+    {% endfor %}
+
+    <h2>개봉일</h2>
+    {{item.pub_date}}
+
+    <h2>평점</h2>
+    {{item.rating}}
+
+    <h2>상세정보 링크</h2>
+    <a href="{{item.detail_link_naver}}">보러 가기</a>
+
+    <h2>비슷한 영화</h2>
+    {% for i in item.similar_movies %}
+    <b>[{{i}}]</b>, 
+    {% endfor %}
+
+    <h2>추천 영화</h2>
+    {% for i in item.recommend_movies %}
+    <b>[{{i}}]</b>, 
+    {% endfor %}
+
+    <h2>관련 영상</h2>
+    {% for i in item.videos %}
+    <p>
+        <b>{{i.title}}</b><br>
+        <a href="{{i.url}}"><img src="{{i.thumbnail}}"></a>         
+    </p>
+    {% endfor %}
+</body>
+</html>
