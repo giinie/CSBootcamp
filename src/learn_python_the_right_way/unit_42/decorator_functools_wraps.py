@@ -15,8 +15,9 @@ def is_multiple(x):             # 데코레이터가 사용할 매개변수를 �
     return real_decorator       # real_decorator 함수 반환
 
 
-@is_multiple(3)  # @decorator(param)
-@is_multiple(7)  # @decorator(param)
+# @is_multiple(3)  # @decorator(param)
+# @is_multiple(7)  # @decorator(param)
+@is_multiple()  # @decorator(param)
 def add(a, b):
     return a + b
 
