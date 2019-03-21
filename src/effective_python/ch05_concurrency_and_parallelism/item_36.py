@@ -5,24 +5,25 @@ from time import sleep, time
 
 proc = subprocess.Popen(
     ['echo', 'Hello from the child!'],
-    shell=True,
+    # shell=True,
     stdout=subprocess.PIPE
 )
 out, err = proc.communicate()
 print(out.decode('utf-8'))
 
 
-proc = subprocess.Popen(['sleep', '3'], shell=True)
+# proc = subprocess.Popen(['sleep', '3'], shell=True)
+proc = subprocess.Popen(['sleep', '0.3'])
 while proc.poll() is None:
     print('Working...')
     # Some time consuming work here
-    sleep(0.3)
+    sleep(0.2)
 
 print('Exit status', proc.poll())
 
 
 def run_sleep(period):
-    proc = subprocess.Popen(['sleep', str(period)], shell=True)
+    proc = subprocess.Popen(['sleep', str(period)])
     return proc
 
 
@@ -43,7 +44,7 @@ def run_openssl(data):
     env['password'] = b'\xe24U\n\xd0Ql3S\x11'
     proc = subprocess.Popen(
         ['openssl', 'enc', '-des3', '-pass', 'env:password'],
-        shell=True,
+        # shell=True,
         env=env,
         stdin=subprocess.PIPE,
         stdout=subprocess.PIPE)
@@ -65,7 +66,7 @@ for proc in procs:
 
 def run_md5(input_stdin):
     proc = subprocess.Popen(
-        ['md5'],
+        ['md5sum'],
         stdin=input_stdin,
         stdout=subprocess.PIPE)
     return proc

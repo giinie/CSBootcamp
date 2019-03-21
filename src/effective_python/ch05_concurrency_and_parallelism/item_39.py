@@ -76,6 +76,7 @@ while len(done_queue.items) < 1000:
 processed = len(done_queue.items)
 polled = sum(t.polled_count for t in threads)
 print('Processed', processed, 'item after polling', polled, 'times')
+print('-' * 50)
 
 # Queue로 문제 해결하기
 queue = Queue()
@@ -138,6 +139,7 @@ in_queue.put(object())
 print('Producer waiting')
 in_queue.join()
 print('Producer done')
+print('-' * 50)
 
 
 class ClosableQueue(Queue):
