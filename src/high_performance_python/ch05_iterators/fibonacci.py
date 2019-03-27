@@ -24,7 +24,7 @@ def fibonacci_generator():
         if f > 5000:
             break
         if f % 2:
-            count =+ 1
+            count += 1
     return count
 
 
@@ -35,3 +35,4 @@ def fibonacci_succinct():
 
 
 print(fibonacci_succinct())
+
